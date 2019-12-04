@@ -1,0 +1,60 @@
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_top">
+        <a class="navbar-brand" routerLink='search-bar/'><h2>
+            <img class="imgtop" src="http://rgims.ac.in/wp-content/uploads/2016/12/blood-bank.jpg"> BloodBank
+        </h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav  ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="loggedIn()" routerLink="experience/">Share Experience</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="loggedIn()" routerLink="blooddonation/">Blood Donation</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="!loggedIn()" routerLink="login/">Blood Donation</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="loggedIn()" routerLink="bloodavailability/">Blood Availability</a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" *ngIf="!loggedIn()" routerLink="login/">Blood Availability</a>
+                    </li>
+                <li class="nav-item active">
+                    <a class="nav-link" *ngIf="loggedIn()" routerLink="bloodrequire/">Blood Require</a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" *ngIf="!loggedIn()" routerLink="login/">Blood Require</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="tips/">Donating Tips</a>
+                    </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="contactus/">Contact us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="aboutus/">About us</a>
+                </li>
+                <li class="nav-item active" *ngIf="loggedIn()">
+                    <i class="material-icons other_icon">person </i> {{this.authService.username}}
+                </li>
+                <li class="nav-item active" *ngIf="loggedIn()" (click)="this.authService.logout()">
+                    <a class="nav-link" routerLink="search-bar/" (click)="exit()">Logout</a>
+                </li>
+                <li class="nav-item active" *ngIf="!loggedIn()">
+                    <a class="nav-link" routerLink="login/">Login</a>
+                </li>
+                <li class="nav-item active" *ngIf="!loggedIn()">
+                    <a class="nav-link" routerLink="signup/">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+    <footer class="col-lg-12 navbar navbar-expand-sm navbar-light text-light fixed-bottom">
+        <p>&copy; Copyright 2019</p>
+    </footer>
+</div>

@@ -1,0 +1,87 @@
+<div class="alert alert-danger mx-3" *ngIf="errorBoolean">
+  {{error}}
+</div>
+        
+            <form class="m-3" [formGroup]="bloodAvailableForm" (submit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-2">
+                    Bloodgroup
+                    <select formControlName="bloodgroup">
+                      <option value="">Select Blood Group</option>
+                      <option *ngFor="let bloodgroup of bloodGroup" [ngValue]="bloodgroup">{{bloodgroup}}</option>
+                      </select>
+                    <div class="text-danger"
+                      *ngIf="bloodgroup.invalid && bloodgroup.errors.required && bloodgroup.touched">Bloodgroup is
+                      required</div>
+                    </div>
+                  <div class="col-lg-2">
+                      State &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                      <select formControlName="state" (change) = "onSelectState($event)">
+                        <option value="">Select your State</option>
+                        <option *ngFor="let state of stateList" value="{{state}}">{{state}}</option>
+                        </select>
+                      <div class="text-danger"
+                        *ngIf="state.invalid && state.errors.required && state.touched">State is
+                        required</div>
+                      </div>
+                    <div class="col-lg-2">
+                        Area &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                        <select formControlName="area" aria-placeholder="Select your Area">
+                          <option value="">Select your Area</option>
+                          <option *ngFor="let area of AreaList" value="{{area}}">{{area}}</option>
+                          </select>
+                        <div class="text-danger"
+                          *ngIf="area.invalid && area.errors.required && area.touched">Area is
+                          required</div>
+                      </div>
+                      <div class="col-lg-2">
+                          Pincode
+                          <input type="number" class="form-control mb-2 mr-sm-2" pattern="^[1-9]\d{1,2}$" placeholder="Enter Your Pincode"
+                            formControlName="pincode" id="pincode" />
+                          <div class="text-danger"
+                            *ngIf="pincode.invalid && pincode.errors.required && pincode.touched && pincode.pincode.error?.pattern">Pincode is required is
+                            required</div>
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn add-to-cart float-left" >Search
+                              </button>
+                          </div>
+
+                        </div>
+            </form>
+            <div class="alert alert-danger" *ngIf="isUserNull">
+              Required Blood not available. Click to post a requirement <a routerLink="/bloodrequire">New Requirement</a>
+            </div>
+            <div *ngIf="isSearchClicked">
+            <table >
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Blood Group
+                </th>
+                <th>
+                  Contact
+                </th>
+                <th>
+                  Pincode  
+                </th>
+              </tr>
+              <tr *ngFor="let user of users">
+                <th>
+                  {{user.firstname}} {{user.lastname}}
+                </th>
+                <th>
+                  {{user.bloodgroup}}
+                </th>
+                <th>
+                  {{user.contact}}
+                </th>
+                <th>
+                  {{user.pincode}}
+                </th>
+
+              </tr>
+            </table>
+          </div>

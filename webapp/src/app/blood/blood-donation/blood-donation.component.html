@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center my-auto">
+    <div class="card">
+        <form class="m-2" [formGroup]="slotForm" (submit)="addSlot()">
+            <div class="col-lg-13 alert alert-danger " *ngIf="slotCreated == false">
+                {{this.error}}
+              </div>
+              <div class="col-lg-13 alert alert-success " *ngIf="slotCreated == true">
+                  {{this.error}}
+                </div>
+        <div class="col-lg-12">
+						Hospital Name<br>
+            <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Hospital Name"
+            formControlName="hospitalname" id="hospitalname" />
+          <div class="text-danger"
+            *ngIf="hospitalname.invalid && hospitalname.errors.required && hospitalname.touched">Hospital Name is required
+           </div>
+          </div>
+          <div class="col-lg-12">
+              Date<br>
+              <input type="date" class="form-control mb-2 mr-sm-2" placeholder="Enter Date"
+            formControlName="date" id="date" />
+          <div class="text-danger"
+            *ngIf="date.invalid && date.errors.required && date.touched">Date is required</div>
+            </div>
+  
+            <div class="col-lg-12">
+              Slot<br>
+              <select formControlName="slot" aria-placeholder="Select your Slot">
+                <option value="">Select your Slot</option>
+                <option *ngFor="let slot of slotList" value="{{slot}}">{{slot}}</option>
+                </select>
+              <div class="text-danger"
+                *ngIf="slot.invalid && slot.errors.required && slot.touched">Slot is
+                required</div>
+            </div>
+
+              <div class="col-lg-12 mt-2">
+                  <button type="submit" class="btn add-to-cart float-left" >Book Slot</button>
+                </div>
+                </form>
+    </div>
+</div>

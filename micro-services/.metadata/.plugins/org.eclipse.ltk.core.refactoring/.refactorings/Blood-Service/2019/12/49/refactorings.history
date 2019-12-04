@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;Authorization-Service/src/main/java/com.cognizant.bloodbank.model&apos;&#x0D;&#x0A;- Original project: &apos;Blood-Service&apos;&#x0D;&#x0A;- Destination element: &apos;Authorization-Service/src/main/java/com.cognizant.bloodbank.model&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.cognizant.bloodbank.model.BloodRequirement.java&#x0D;&#x0A;     com.cognizant.bloodbank.model.Experience.java" description="Copy compilation units" destination="=Authorization-Service/src\/main\/java&lt;com.cognizant.bloodbank.model" element1="/src\/main\/java&lt;com.cognizant.bloodbank.model{BloodRequirement.java" element2="/src\/main\/java&lt;com.cognizant.bloodbank.model{Experience.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1575265109843" units="2" version="1.0"/>
+</session>

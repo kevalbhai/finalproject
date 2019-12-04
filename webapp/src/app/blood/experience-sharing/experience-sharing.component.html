@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center my-auto">
+    <div class="card ">
+        <form class="m-2" [formGroup]="experienceForm" (submit)="addExperience()">
+            <div class="col-lg-13 alert alert-danger " *ngIf="experienceCreated == false">
+                {{this.error}}
+              </div>
+              <div class="col-lg-13 alert alert-success " *ngIf="experienceCreated == true">
+                  {{this.error}}
+                </div>
+                <div class="col-lg-12">
+                    Hospital Name
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Hospital Name"
+                      formControlName="hospitalname" id="hospitalname" />
+                    <div class="text-danger"
+                      *ngIf="hospitalname.invalid && hospitalname.errors.required && hospitalname.touched">Hospital Name is
+                      required</div>
+                  </div>
+                  <div class="col-lg-12">
+                      City
+                      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter City"
+                        formControlName="city" id="city" />
+                      <div class="text-danger"
+                        *ngIf="city.invalid && city.errors.required && city.touched">City is
+                        required</div>
+                    </div>
+                    <div class="col-lg-12">
+                        Feedback
+                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Feedback/comments"
+                          formControlName="feedback" id="feedback" />
+                        <div class="text-danger"
+                          *ngIf="feedback.invalid && feedback.errors.required && feedback.touched">Feedback is
+                          required</div>
+                      </div>
+
+              <div class="col-lg-12 mt-2">
+                  <button type="submit" class="btn add-to-cart float-left" >Submit Experience</button>
+                </div>
+                </form>
+    </div>
+</div>

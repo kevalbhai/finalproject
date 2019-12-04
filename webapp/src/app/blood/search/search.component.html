@@ -1,0 +1,69 @@
+<div class="m-5">
+  <h4>
+    Blood Requirements
+  </h4>
+  <table>
+      <tr>
+        <th>
+          Blood Group
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Area
+        </th>
+        <th>
+            Pincode
+        </th>
+      </tr>
+      <tr *ngFor="let require of bloodRequireList">
+        <td> 
+          {{require.bloodgroup}}
+        </td>
+        <td>
+          {{require.state}}
+        </td>
+        <td>
+          {{require.area}}
+        </td>
+        <td>
+          {{require.pincode}}
+        </td>
+      </tr>
+    </table>
+    
+</div>
+<div class="m-5">
+  <h4>
+    Feedbacks:
+  </h4>
+  <table>
+      <tr>
+        <th>
+          Hospital Name
+        </th>
+        <th>
+          City
+        </th>
+        <th colspan="3">
+          Feedback
+        </th>
+      </tr>
+      <tr *ngFor="let experience of experienceList">
+        <td> 
+          {{experience.hospitalname}}
+        </td>
+        <td>
+          {{experience.city}}
+        </td>
+        <td colspan="3">
+          {{experience.feedback}}
+        </td>
+      </tr>
+    </table>
+    
+</div><br><br><br>
+<div class="m-3">
+
+</div>

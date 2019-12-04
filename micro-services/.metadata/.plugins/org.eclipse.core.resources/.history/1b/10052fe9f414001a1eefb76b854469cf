@@ -1,0 +1,14 @@
+package com.cognizant.bloodbank;
+
+import org.junit.Test;
+//import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class BloodBankApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

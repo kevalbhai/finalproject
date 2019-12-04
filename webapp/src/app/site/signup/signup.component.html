@@ -1,0 +1,168 @@
+<div class="container d-flex justify-content-center">
+	<div class="col-md-6 mt-2">
+		<div class="card mt-4 mb-4">
+			<form class="m-2" [formGroup]="signUpForm" (submit)="addUser()">
+				<div class="row">
+					<h2 class="col-lg-12 mb-4">Sign Up</h2>
+					<div class="col-lg-11 alert alert-danger mx-3" *ngIf="userCreated == false">
+						{{this.error}}
+					</div>
+					<div class="col-lg-11 alert alert-success mx-3" *ngIf="userCreated == true">
+						{{this.error}} <a routerLink="/login">Login Page</a>
+					</div>
+					<div class="col-lg-12">
+						Email*
+						<input type="text" class="col-lg-6 form-control mb-2 mr-sm-2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter Email"
+							formControlName="email" id="email">
+						<div class="text-danger"
+							*ngIf="email.invalid && email.errors.required && email.touched">Email is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Fistname*
+						<input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter First Name"
+							formControlName="firstname" id="firstname">
+						<div class="text-danger"
+							*ngIf="firstname.invalid && firstname.errors.required && firstname.touched">First Name is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Lastname*
+						<input type="text" class="form-control mb-2 mr-sm-2" type="text" placeholder="Enter Last Name"
+							formControlName="lastname" id="lastname" />
+						<div class="text-danger"
+							*ngIf="lastname.invalid && lastname.errors.required && lastname.touched">Last Name is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Password*
+						<input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter Password"
+							formControlName="password" id="password">
+						<div class="text-danger"
+							*ngIf="password.invalid && password.errors.required && password.touched">Password is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Confirm Password*
+						<input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter Confirm Password"
+							formControlName="confirmPassword" id="confirmPassword">
+						<div class="text-danger"
+							*ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">
+							Confirm the Password</div>
+						<div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password
+							and Confirm Password do not match</div>
+					</div>
+
+					<div class="col-lg-6">
+						Age*
+						<input type="number" class="form-control mb-2 mr-sm-2" pattern="^[1-9]\d{1,2}$" placeholder="Enter Your Age"
+							formControlName="age" id="age" />
+						<div class="text-danger"
+							*ngIf="age.invalid && age.errors.required && age.touched && age.age.error?.pattern">Age is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Weight*
+						<input type="number" class="form-control mb-2 mr-sm-2" pattern="^[1-9]\d{1,2}$" placeholder="Enter Your Weight"
+							formControlName="weight" id="weight" />
+						<div class="text-danger"
+							*ngIf="weight.invalid && weight.errors.required && weight.touched && weight.weight.error?.pattern">Weight is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Gender*<br>
+						<select formControlName="gender">
+							<option value="">Select your Gender</option>
+							<option *ngFor="let gender of Gender" [ngValue]="gender">{{gender}}</option>
+						  </select>
+						<div class="text-danger"
+							*ngIf="gender.invalid && gender.errors.required && gender.touched">Gender is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Bloodgroup*<br>
+						<select formControlName="bloodgroup">
+							<option value="">Choose your Blood Group</option>
+							<option *ngFor="let bloodgroup of bloodGroup" [ngValue]="bloodgroup">{{bloodgroup}}</option>
+						  </select>
+						<div class="text-danger"
+							*ngIf="bloodgroup.invalid && bloodgroup.errors.required && bloodgroup.touched">Bloodgroup is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Contact Number*
+						<input type="number" class="form-control mb-2 mr-sm-2" pattern="^[1-9]\d{1,2}$" placeholder="Enter Your Contact Number"
+							formControlName="contact" id="contact" />
+						<div class="text-danger"
+							*ngIf="contact.invalid && contact.errors.required && contact.touched && contact.contact.error?.pattern">Contact Number is required is
+							required</div>
+					</div>
+
+					<!-- <div class="col-lg-6">
+						State
+						<input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter State"
+							formControlName="state" id="state" />
+						<div class="text-danger"
+							*ngIf="state.invalid && state.errors.required && state.touched">State is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Area
+						<input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Area"
+							formControlName="area" id="area" />
+						<div class="text-danger"
+							*ngIf="area.invalid && area.errors.required && area.touched">Area is
+							required</div>
+					</div> -->
+
+					<div class="col-lg-6">
+						Pincode*
+						<input type="number" class="form-control mb-2 mr-sm-2" pattern="^[1-9]\d{1,2}$" placeholder="Enter Your Pincode"
+							formControlName="pincode" id="pincode" />
+						<div class="text-danger"
+							*ngIf="pincode.invalid && pincode.errors.required && pincode.touched && pincode.pincode.error?.pattern">Pincode is required is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						State*<br>
+						<select formControlName="state" (change) = "onSelectState($event)">
+							<option value="">Select your State</option>
+							<option *ngFor="let state of stateList" value="{{state}}">{{state}}</option>
+						  </select>
+						<div class="text-danger"
+							*ngIf="state.invalid && state.errors.required && state.touched">State is
+							required</div>
+					</div>
+
+					<div class="col-lg-6">
+						Area*<br>
+						<select formControlName="area" aria-placeholder="Select your Area">
+							<option value="">Select your Area</option>
+							<option *ngFor="let area of AreaList" value="{{area}}">{{area}}</option>
+						  </select>
+						<div class="text-danger"
+							*ngIf="area.invalid && area.errors.required && area.touched">Area is
+							required</div>
+					</div>
+					
+					<div class="col-lg-12 mt-2">
+						<button type="submit" class="btn add-to-cart float-left" >Sign
+							Up</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<br>
+<br>

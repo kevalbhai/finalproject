@@ -1,0 +1,8 @@
+.float-left{
+	float:left;
+}
+.btn.add-to-cart{
+	background-color: #ed7d2c;
+	color: #ffffff;
+	float: right;
+}

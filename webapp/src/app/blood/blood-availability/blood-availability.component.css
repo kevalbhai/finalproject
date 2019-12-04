@@ -1,0 +1,14 @@
+.float-left{
+	float:left;
+}
+.btn.add-to-cart{
+	background-color: #ed7d2c;
+	color: #ffffff;
+	float: right;
+}
+table{
+	border: 1px solid black;
+	width: 60%;
+	text-align: left;
+	margin-left: 3%;
+}
